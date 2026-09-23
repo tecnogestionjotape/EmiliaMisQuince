@@ -1,0 +1,409 @@
+:root {
+  --verde-oscuro: #23382c;
+  --verde-salvia: #5c7966;
+  --verde-claro: #e4ece5;
+  --dorado-suave: #c8a876;
+  --fondo-delicado: #f8faf8;
+  --texto-oscuro: #2a332d;
+  --texto-secundario: #5f6d63;
+  --blanco: #ffffff;
+
+  --fuente-cursiva: "Alex Brush", cursive;
+  --fuente-clasica: "Cormorant Garamond", serif;
+  --fuente-sans: "Montserrat", sans-serif;
+}
+
+/* Reset móvil y tipografía */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-sans);
+  background-color: var(--fondo-delicado);
+  background-image: radial-gradient(
+    circle at 50% 15%,
+    #ffffff 0%,
+    #f3f6f3 50%,
+    #e5ece6 100%
+  );
+  color: var(--texto-oscuro);
+  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Pantalla de Splash */
+#splash {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #23382c 0%, #15241c 100%);
+  color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s;
+  padding: 24px;
+}
+
+#splash.oculto {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#splash h2 {
+  font-family: var(--fuente-clasica);
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
+  letter-spacing: clamp(4px, 1.5vw, 6px);
+  margin-bottom: 12px;
+  font-weight: 400;
+  color: var(--verde-claro);
+}
+
+#splash p {
+  font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+  margin-bottom: 32px;
+  opacity: 0.85;
+  letter-spacing: 1px;
+  font-weight: 300;
+  max-width: 320px;
+}
+
+.btn-ingresar {
+  background: transparent;
+  border: 1px solid var(--dorado-suave);
+  color: var(--dorado-suave);
+  padding: 14px 38px;
+  font-size: 0.85rem;
+  font-family: var(--fuente-sans);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-radius: 50px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-ingresar:hover,
+.btn-ingresar:active {
+  background-color: var(--dorado-suave);
+  color: var(--blanco);
+  transform: scale(0.98);
+}
+
+/* Botón flotante adaptado a la barra inferior de móviles */
+#btn-musica {
+  position: fixed;
+  bottom: max(20px, env(safe-area-inset-bottom, 20px));
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--blanco);
+  border: 1.5px solid var(--dorado-suave);
+  box-shadow: 0 4px 15px rgba(35, 56, 44, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  touch-action: manipulation;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+#btn-musica:active {
+  transform: scale(0.9);
+}
+
+#btn-musica svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--verde-oscuro);
+}
+
+/* Contenedor central flexible */
+.contenedor-principal {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 16px;
+  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Sección Portada */
+.hero {
+  padding: clamp(35px, 8vh, 55px) 10px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subtitulo-quince {
+  font-family: var(--fuente-clasica);
+  font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+  letter-spacing: clamp(5px, 2vw, 8px);
+  text-transform: uppercase;
+  color: var(--verde-salvia);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+/* Marco editorial escalable */
+
+.marco-editorial {
+  position: relative;
+  width: min(80vw, 310px); /* Antes estaba en min(72vw, 270px) */
+  aspect-ratio: 3 / 4;
+  margin: 10px auto 25px;
+}
+
+.borde-dorado {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--dorado-suave);
+  border-radius: 18px;
+  z-index: 1;
+}
+
+.contenedor-imagen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blanco);
+  padding: 6px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(35, 56, 44, 0.12);
+  z-index: 2;
+  overflow: hidden;
+}
+
+.foto-emilia {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Tipografía de Emilia con escalado fluido */
+.nombre-emilia {
+  font-family: var(--fuente-cursiva);
+  font-size: clamp(3.8rem, 17vw, 5.5rem);
+  font-weight: 400;
+  color: var(--verde-oscuro);
+  line-height: 1;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  word-break: normal;
+}
+
+.separador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 0 20px;
+  width: min(150px, 40vw);
+}
+
+.separador::before,
+.separador::after {
+  content: "";
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--dorado-suave),
+    transparent
+  );
+  flex: 1;
+}
+
+.separador span {
+  color: var(--dorado-suave);
+  font-size: 0.85rem;
+}
+
+.frase-bienvenida {
+  font-size: clamp(0.85rem, 3.2vw, 0.92rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--texto-secundario);
+  max-width: 360px;
+  margin: 0 auto;
+  font-style: italic;
+  padding: 0 10px;
+}
+
+/* Cuenta regresiva fluida */
+.seccion-contador {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 168, 118, 0.35);
+  border-radius: 20px;
+  margin: 25px 0;
+  padding: 22px 10px;
+  box-shadow: 0 8px 24px rgba(35, 56, 44, 0.05);
+}
+
+.contador-titulo {
+  font-family: var(--fuente-clasica);
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--verde-salvia);
+  margin-bottom: 16px;
+}
+
+.temporizador {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: clamp(4px, 1.5vw, 8px);
+}
+
+.bloque-tiempo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: clamp(45px, 14vw, 65px);
+}
+
+.bloque-tiempo .cifra {
+  font-family: var(--fuente-clasica);
+  font-size: clamp(1.7rem, 7vw, 2.3rem);
+  font-weight: 600;
+  color: var(--verde-oscuro);
+  line-height: 1;
+}
+
+.bloque-tiempo .etiqueta {
+  font-size: clamp(0.6rem, 2.2vw, 0.72rem);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--texto-secundario);
+  margin-top: 5px;
+}
+
+.dos-puntos {
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  font-weight: 300;
+  color: var(--dorado-suave);
+  user-select: none;
+}
+
+/* Tarjeta La Fiesta */
+.seccion-evento {
+  padding: 5px 0;
+}
+
+.tarjeta-evento {
+  background-color: var(--blanco);
+  border: 1px solid var(--verde-claro);
+  border-radius: 22px;
+  padding: clamp(25px, 6vw, 35px) clamp(16px, 4vw, 25px);
+  box-shadow: 0 10px 30px rgba(35, 56, 44, 0.06);
+}
+
+.icono-evento {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.titulo-evento {
+  font-family: var(--fuente-clasica);
+  font-size: clamp(1.6rem, 5.5vw, 2rem);
+  color: var(--verde-oscuro);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.fecha-evento {
+  font-size: clamp(0.95rem, 3.5vw, 1.05rem);
+  font-weight: 600;
+  color: var(--verde-salvia);
+}
+
+.hora-evento {
+  font-size: 0.9rem;
+  color: var(--texto-secundario);
+  margin-top: 2px;
+}
+
+.linea-tarjeta {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--dorado-suave),
+    transparent
+  );
+  margin: 18px auto;
+  width: 50%;
+}
+
+.lugar-evento {
+  font-family: var(--fuente-clasica);
+  font-size: clamp(1.25rem, 4.5vw, 1.5rem);
+  color: var(--verde-oscuro);
+  margin-bottom: 4px;
+}
+
+.direccion-evento {
+  font-size: 0.88rem;
+  color: var(--texto-secundario);
+  margin-bottom: 22px;
+}
+
+.btn-evento {
+  display: inline-block;
+  background-color: var(--verde-oscuro);
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 13px 30px;
+  border-radius: 50px;
+  touch-action: manipulation;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+  box-shadow: 0 4px 15px rgba(35, 56, 44, 0.25);
+}
+
+.btn-evento:hover,
+.btn-evento:active {
+  background-color: var(--verde-salvia);
+  transform: scale(0.98);
+}

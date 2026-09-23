@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis 15 - Emilia</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <!-- Splash / Pantalla de bienvenida -->
+    <div id="splash">
+      <h2>MIS QUINCE</h2>
+      <p>Te invito a compartir este momento conmigo</p>
+      <button class="btn-ingresar" id="btn-ingresar">Ingresar</button>
+    </div>
+
+    <!-- Audio de fondo -->
+    <audio id="musica" loop preload="auto">
+      <source src="audio/musica.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Botón flotante -->
+    <button id="btn-musica" title="Pausar / Reproducir">
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
+        />
+      </svg>
+    </button>
+
+    <div class="contenedor-principal">
+      <!-- Portada (Hero) -->
+      <main class="hero">
+        <h2 class="subtitulo-quince">Mis Quince Años</h2>
+
+        <!-- Nuevo Marco Editorial Desfasado -->
+        <div class="marco-editorial">
+          <div class="borde-dorado"></div>
+          <div class="contenedor-imagen">
+            <img src="img/portada.jpg" alt="Emilia" class="foto-emilia" />
+          </div>
+        </div>
+
+        <h1 class="nombre-emilia">Emilia</h1>
+
+        <div class="separador"><span>✦</span></div>
+
+        <p class="frase-bienvenida">
+          Hay momentos en la vida que son especiales por sí solos, pero
+          compartirlos con las personas que más quiero los hace inolvidables.
+        </p>
+      </main>
+
+      <!-- Sección: Cuenta Regresiva -->
+      <section class="seccion-contador">
+        <h3 class="contador-titulo">Faltan tan solo...</h3>
+        <div class="temporizador">
+          <div class="bloque-tiempo">
+            <span class="cifra" id="dias">00</span>
+            <span class="etiqueta">Días</span>
+          </div>
+          <span class="dos-puntos">:</span>
+          <div class="bloque-tiempo">
+            <span class="cifra" id="horas">00</span>
+            <span class="etiqueta">Hs</span>
+          </div>
+          <span class="dos-puntos">:</span>
+          <div class="bloque-tiempo">
+            <span class="cifra" id="minutos">00</span>
+            <span class="etiqueta">Min</span>
+          </div>
+          <span class="dos-puntos">:</span>
+          <div class="bloque-tiempo">
+            <span class="cifra" id="segundos">00</span>
+            <span class="etiqueta">Seg</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: La Fiesta -->
+      <section class="seccion-evento">
+        <div class="tarjeta-evento">
+          <div class="icono-evento">✨</div>
+          <h3 class="titulo-evento">La Fiesta</h3>
+          <p class="fecha-evento">Sábado 28 de Noviembre</p>
+          <p class="hora-evento">21:30 hs</p>
+
+          <hr class="linea-tarjeta" />
+
+          <h4 class="lugar-evento">Sociedad Italiana de Vila</h4>
+          <p class="direccion-evento">Vila, Santa Fe</p>
+
+          <!-- Botón que abre Google Maps directamente -->
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Sociedad+Italiana+de+Vila+Santa+Fe"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-evento"
+          >
+            Cómo llegar
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
