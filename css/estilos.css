@@ -13,7 +13,6 @@
   --fuente-sans: "Montserrat", sans-serif;
 }
 
-/* Reset móvil y tipografía */
 *,
 *::before,
 *::after {
@@ -21,10 +20,6 @@
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -41,10 +36,20 @@ body {
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
-  line-height: 1.5;
+  position: relative;
 }
 
-/* Pantalla de Splash */
+/* Lienzo interactivo de fuegos artificiales */
+#canvas-fuegos {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Splash inicial */
 #splash {
   position: fixed;
   inset: 0;
@@ -84,7 +89,7 @@ body {
   letter-spacing: 1px;
   font-weight: 300;
   max-width: 95vw;
-  white-space: nowrap; /* Evita que el texto salte a un segundo renglón */
+  white-space: nowrap;
 }
 
 .btn-ingresar {
@@ -98,21 +103,19 @@ body {
   letter-spacing: 3px;
   border-radius: 50px;
   cursor: pointer;
-  touch-action: manipulation;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition:
     transform 0.2s ease,
     background-color 0.2s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.btn-ingresar:hover,
-.btn-ingresar:active {
+.btn-ingresar:hover {
   background-color: var(--dorado-suave);
   color: var(--blanco);
   transform: scale(0.98);
 }
 
-/* Botón flotante adaptado a la barra inferior de móviles */
+/* Botón flotante de audio */
 #btn-musica {
   position: fixed;
   bottom: max(20px, env(safe-area-inset-bottom, 20px));
@@ -128,14 +131,6 @@ body {
   justify-content: center;
   cursor: pointer;
   z-index: 1000;
-  touch-action: manipulation;
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease;
-}
-
-#btn-musica:active {
-  transform: scale(0.9);
 }
 
 #btn-musica svg {
@@ -144,84 +139,45 @@ body {
   fill: var(--verde-oscuro);
 }
 
-/* Contenedor central flexible */
+/* Contenedor central */
 .contenedor-principal {
+  position: relative;
+  z-index: 2;
   width: 100%;
-  max-width: 500px;
+  max-width: 520px;
   margin: 0 auto;
   padding: 0 16px;
-  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: 90px;
 }
 
-/* Sección Portada */
+/* Hero: ocupa la altura completa para obligar a scrollear hacia el contador */
 .hero {
-  padding: clamp(35px, 8vh, 55px) 10px 25px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: 40px 0 20px;
 }
 
 .subtitulo-quince {
   font-family: var(--fuente-clasica);
-  font-size: clamp(1.1rem, 4.5vw, 1.4rem);
-  letter-spacing: clamp(5px, 2vw, 8px);
+  font-size: clamp(1.15rem, 3.8vw, 1.4rem);
+  letter-spacing: clamp(5px, 2vw, 7px);
   text-transform: uppercase;
   color: var(--verde-salvia);
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   font-weight: 600;
 }
 
-/* Marco editorial escalable */
-
-.marco-editorial {
-  position: relative;
-  width: min(80vw, 310px); /* Antes estaba en min(72vw, 270px) */
-  aspect-ratio: 3 / 4;
-  margin: 10px auto 25px;
-}
-
-.borde-dorado {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 100%;
-  height: 100%;
-  border: 1.5px solid var(--dorado-suave);
-  border-radius: 18px;
-  z-index: 1;
-}
-
-.contenedor-imagen {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: var(--blanco);
-  padding: 6px;
-  border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(35, 56, 44, 0.12);
-  z-index: 2;
-  overflow: hidden;
-}
-
-.foto-emilia {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
-  border-radius: 12px;
-  display: block;
-}
-
-/* Tipografía de Emilia con escalado fluido */
 .nombre-emilia {
   font-family: var(--fuente-cursiva);
-  font-size: clamp(3.8rem, 17vw, 5.5rem);
+  font-size: clamp(4rem, 16vw, 5.5rem);
   font-weight: 400;
   color: var(--verde-oscuro);
   line-height: 1;
   margin-top: 10px;
-  margin-bottom: 5px;
-  word-break: normal;
+  margin-bottom: 6px;
 }
 
 .separador {
@@ -229,7 +185,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin: 15px 0 20px;
+  margin: 10px 0 14px;
   width: min(150px, 40vw);
 }
 
@@ -251,26 +207,55 @@ body {
   font-size: 0.85rem;
 }
 
+/* Frase en dos renglones */
 .frase-bienvenida {
-  font-size: clamp(0.85rem, 3.2vw, 0.92rem);
+  font-size: clamp(0.85rem, 2.6vw, 0.98rem);
   font-weight: 300;
   line-height: 1.7;
   color: var(--texto-secundario);
-  max-width: 360px;
-  margin: 0 auto;
+  max-width: min(96vw, 640px);
+  margin: 0 auto 20px;
   font-style: italic;
   padding: 0 10px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
 }
 
-/* Cuenta regresiva fluida */
+.frase-bienvenida.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Formato apaisado para todas las fotos */
+.contenedor-foto-horizontal {
+  width: min(94vw, 440px);
+  aspect-ratio: 16 / 11;
+  margin: 10px auto 25px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 14px 38px rgba(35, 56, 44, 0.14);
+  border: 4px solid var(--blanco);
+}
+
+.foto-emilia-horizontal {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
+
+/* Contador */
 .seccion-contador {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(200, 168, 118, 0.35);
   border-radius: 20px;
-  margin: 25px 0;
-  padding: 22px 10px;
+  margin: 30px 0;
+  padding: 24px 10px;
   box-shadow: 0 8px 24px rgba(35, 56, 44, 0.05);
 }
 
@@ -322,7 +307,7 @@ body {
 
 /* Tarjeta La Fiesta */
 .seccion-evento {
-  padding: 5px 0;
+  padding: 10px 0;
 }
 
 .tarjeta-evento {
@@ -396,15 +381,12 @@ body {
   letter-spacing: 2px;
   padding: 13px 30px;
   border-radius: 50px;
-  touch-action: manipulation;
+  box-shadow: 0 4px 15px rgba(35, 56, 44, 0.25);
   transition:
     transform 0.2s ease,
     background-color 0.2s ease;
-  box-shadow: 0 4px 15px rgba(35, 56, 44, 0.25);
 }
 
-.btn-evento:hover,
-.btn-evento:active {
+.btn-evento:hover {
   background-color: var(--verde-salvia);
-  transform: scale(0.98);
 }

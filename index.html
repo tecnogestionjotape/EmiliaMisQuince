@@ -16,7 +16,10 @@
     <link rel="stylesheet" href="css/estilos.css" />
   </head>
   <body>
-    <!-- Splash / Pantalla de bienvenida -->
+    <!-- Lienzo de fuegos artificiales y destellos -->
+    <canvas id="canvas-fuegos"></canvas>
+
+    <!-- Pantalla Splash de Bienvenida -->
     <div id="splash">
       <h2>MIS QUINCE</h2>
       <p>Te invito a compartir este momento conmigo</p>
@@ -38,29 +41,41 @@
     </button>
 
     <div class="contenedor-principal">
-      <!-- Portada (Hero) -->
+      <!-- Portada Principal -->
       <main class="hero">
         <h2 class="subtitulo-quince">Mis Quince Años</h2>
 
-        <!-- Nuevo Marco Editorial Desfasado -->
-        <div class="marco-editorial">
-          <div class="borde-dorado"></div>
-          <div class="contenedor-imagen">
-            <img src="img/portada.jpg" alt="Emilia" class="foto-emilia" />
-          </div>
+        <!-- Foto 1: emilia4.jpg (Foto principal de portada) -->
+        <div class="contenedor-foto-horizontal">
+          <img
+            src="img/emilia4.jpg"
+            alt="Emilia"
+            class="foto-emilia-horizontal"
+          />
         </div>
 
         <h1 class="nombre-emilia">Emilia</h1>
 
         <div class="separador"><span>✦</span></div>
 
-        <p class="frase-bienvenida">
-          Hay momentos en la vida que son especiales por sí solos, pero
-          compartirlos con las personas que más quiero los hace inolvidables.
+        <!-- Frase en dos renglones exactos -->
+        <p class="frase-bienvenida" id="frase-bienvenida">
+          Hay momentos en la vida que son especiales por sí solos,<br />
+          pero compartirlos con las personas que más quiero los hace
+          inolvidables.
         </p>
+
+        <!-- Foto 2: emilia3.jpg (Debajo de la frase y antes del contador) -->
+        <div class="contenedor-foto-horizontal">
+          <img
+            src="img/emilia3.jpg"
+            alt="Emilia"
+            class="foto-emilia-horizontal"
+          />
+        </div>
       </main>
 
-      <!-- Sección: Cuenta Regresiva -->
+      <!-- Sección: Cuenta Regresiva (Visible tras hacer scroll) -->
       <section class="seccion-contador">
         <h3 class="contador-titulo">Faltan tan solo...</h3>
         <div class="temporizador">
@@ -86,6 +101,15 @@
         </div>
       </section>
 
+      <!-- Foto 3: emilia1.jpg (Debajo del contador) -->
+      <div class="contenedor-foto-horizontal">
+        <img
+          src="img/emilia1.jpg"
+          alt="Emilia"
+          class="foto-emilia-horizontal"
+        />
+      </div>
+
       <!-- Sección: La Fiesta -->
       <section class="seccion-evento">
         <div class="tarjeta-evento">
@@ -99,7 +123,6 @@
           <h4 class="lugar-evento">Sociedad Italiana de Vila</h4>
           <p class="direccion-evento">Vila, Santa Fe</p>
 
-          <!-- Botón que abre Google Maps directamente -->
           <a
             href="https://www.google.com/maps/search/?api=1&query=Sociedad+Italiana+de+Vila+Santa+Fe"
             target="_blank"
