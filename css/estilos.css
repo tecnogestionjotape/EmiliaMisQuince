@@ -209,12 +209,12 @@ body {
 
 /* Frase en dos renglones */
 .frase-bienvenida {
-  font-size: clamp(0.85rem, 2.6vw, 0.98rem);
+  font-size: clamp(0.9rem, 3.5vw, 1.05rem);
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--texto-secundario);
-  max-width: min(96vw, 640px);
-  margin: 0 auto 20px;
+  max-width: 90vw;
+  margin: 0 auto 25px;
   font-style: italic;
   padding: 0 10px;
   opacity: 0;
