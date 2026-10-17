@@ -2,28 +2,47 @@
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <meta name="theme-color" content="#18372f" />
-    <meta name="description" content="Te invito a celebrar mis quince años. Emilia · 28 de noviembre de 2026 · Sociedad Italiana de Vila." />
+    <meta
+      name="description"
+      content="Te invito a celebrar mis quince años. Emilia · 28 de noviembre de 2026 · Sociedad Italiana de Vila."
+    />
     <title>Mis quince años · Emilia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/estilos.css" />
   </head>
   <body class="inicio-bloqueado">
     <canvas id="canvas-fuegos" aria-hidden="true"></canvas>
 
     <!-- Pantalla inicial: el ingreso habilita la música con un gesto del invitado. -->
-    <div class="bienvenida" id="splash" role="dialog" aria-modal="true" aria-labelledby="splash-titulo">
+    <div
+      class="bienvenida"
+      id="splash"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="splash-titulo"
+    >
       <div class="bienvenida__marco">
         <span class="ornamento" aria-hidden="true">✧ &nbsp; ✦ &nbsp; ✧</span>
         <p class="bienvenida__kicker">Una noche inolvidable</p>
         <span class="bienvenida__numero">15</span>
         <h2 id="splash-titulo" class="bienvenida__nombre">Emilia</h2>
         <div class="linea-ornamental" aria-hidden="true"><span>✦</span></div>
-        <p class="bienvenida__mensaje">Te invito a compartir este momento conmigo</p>
-        <button type="button" class="boton boton--claro" id="btn-ingresar">Abrir invitación <span aria-hidden="true">↗</span></button>
+        <p class="bienvenida__mensaje">
+          Te invito a compartir este momento conmigo
+        </p>
+        <button type="button" class="boton boton--claro" id="btn-ingresar">
+          Abrir invitación <span aria-hidden="true">↗</span>
+        </button>
         <p class="bienvenida__nota">Con música para acompañarte ♫</p>
       </div>
     </div>
@@ -31,8 +50,17 @@
     <audio id="musica" loop preload="none">
       <source src="audio/musica.mp3" type="audio/mpeg" />
     </audio>
-    <button type="button" id="btn-musica" class="boton-musica" aria-label="Reproducir música" aria-pressed="false" title="Activar o pausar la música">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z" /></svg>
+    <button
+      type="button"
+      id="btn-musica"
+      class="boton-musica"
+      aria-label="Reproducir música"
+      aria-pressed="false"
+      title="Activar o pausar la música"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z" />
+      </svg>
       <span id="estado-musica" class="sr-only">Música pausada</span>
     </button>
 
@@ -41,80 +69,208 @@
         <div class="portada__decoracion" aria-hidden="true">✦</div>
         <p class="portada__encabezado">Mis quince años</p>
         <h1 class="portada__nombre">Emilia</h1>
-        <div class="linea-ornamental linea-ornamental--oscura" aria-hidden="true"><span>✧</span></div>
+        <div
+          class="linea-ornamental linea-ornamental--oscura"
+          aria-hidden="true"
+        >
+          <span>✧</span>
+        </div>
         <p class="portada__frase" id="frase-bienvenida">
           Hay momentos especiales por sí solos,<br class="salto-escritorio" />
-          pero compartirlos con quienes más quiero<br class="salto-escritorio" />
+          pero compartirlos con quienes más quiero<br
+            class="salto-escritorio"
+          />
           los hace inolvidables.
         </p>
-        <div class="portada__fecha"><span>28</span><span class="portada__fecha-divisor"></span><span>Noviembre<br />2026</span></div>
-        <p class="portada__deslizar">Deslizá para descubrir <span aria-hidden="true">↓</span></p>
+        <div class="portada__fecha">
+          <span>28</span><span class="portada__fecha-divisor"></span
+          ><span>Noviembre<br />2026</span>
+        </div>
+        <p class="portada__deslizar">
+          Deslizá para descubrir <span aria-hidden="true">↓</span>
+        </p>
       </header>
 
       <!-- Collage 01: el orden visual y del HTML es EMILIA1, 2, 3. -->
-      <section class="fotografias fotografias--uno" aria-label="Fotos de Emilia, primera parte">
-        <figure class="foto foto--1"><img src="img/EMILIA1.jpeg" alt="Emilia con globos dorados de sus quince años" fetchpriority="high" /></figure>
-        <figure class="foto foto--2"><img src="img/EMILIA2.jpeg" alt="Emilia durante su sesión de fotos" loading="lazy" /></figure>
-        <figure class="foto foto--3"><img src="img/EMILIA3.jpeg" alt="Retrato de Emilia con sombrero" loading="lazy" /></figure>
+      <section
+        class="fotografias fotografias--uno"
+        aria-label="Fotos de Emilia, primera parte"
+      >
+        <figure class="foto foto--1">
+          <img
+            src="img/EMILIA1.jpeg"
+            alt="Emilia con globos dorados de sus quince años"
+            fetchpriority="high"
+          />
+        </figure>
+        <figure class="foto foto--2">
+          <img
+            src="img/EMILIA2.jpeg"
+            alt="Emilia durante su sesión de fotos"
+            loading="lazy"
+          />
+        </figure>
+        <figure class="foto foto--3">
+          <img
+            src="img/EMILIA3.jpeg"
+            alt="Retrato de Emilia con sombrero"
+            loading="lazy"
+          />
+        </figure>
       </section>
 
       <section class="cuenta" aria-labelledby="titulo-cuenta">
         <span class="detalle-decorativo" aria-hidden="true">✦</span>
         <p class="seccion__pre">La magia está por comenzar</p>
         <h2 id="titulo-cuenta" class="seccion__titulo">Faltan tan solo...</h2>
-        <div class="temporizador" role="timer" aria-label="Cuenta regresiva para la fiesta">
-          <div class="bloque-tiempo"><span class="cifra" id="dias">00</span><span class="etiqueta">Días</span></div>
+        <div
+          class="temporizador"
+          role="timer"
+          aria-label="Cuenta regresiva para la fiesta"
+        >
+          <div class="bloque-tiempo">
+            <span class="cifra" id="dias">00</span
+            ><span class="etiqueta">Días</span>
+          </div>
           <span class="dos-puntos" aria-hidden="true">:</span>
-          <div class="bloque-tiempo"><span class="cifra" id="horas">00</span><span class="etiqueta">Horas</span></div>
+          <div class="bloque-tiempo">
+            <span class="cifra" id="horas">00</span
+            ><span class="etiqueta">Horas</span>
+          </div>
           <span class="dos-puntos" aria-hidden="true">:</span>
-          <div class="bloque-tiempo"><span class="cifra" id="minutos">00</span><span class="etiqueta">Minutos</span></div>
+          <div class="bloque-tiempo">
+            <span class="cifra" id="minutos">00</span
+            ><span class="etiqueta">Minutos</span>
+          </div>
           <span class="dos-puntos" aria-hidden="true">:</span>
-          <div class="bloque-tiempo"><span class="cifra" id="segundos">00</span><span class="etiqueta">Segundos</span></div>
+          <div class="bloque-tiempo">
+            <span class="cifra" id="segundos">00</span
+            ><span class="etiqueta">Segundos</span>
+          </div>
         </div>
       </section>
 
       <section class="fiesta" aria-labelledby="titulo-fiesta">
         <div class="fiesta__contenido">
-          <span class="ornamento fiesta__ornamento" aria-hidden="true">✧ &nbsp; ✦ &nbsp; ✧</span>
-          <p class="seccion__pre seccion__pre--clara">Te espero para celebrar</p>
+          <span class="ornamento fiesta__ornamento" aria-hidden="true"
+            >✧ &nbsp; ✦ &nbsp; ✧</span
+          >
+          <p class="seccion__pre seccion__pre--clara">
+            Te espero para celebrar
+          </p>
           <h2 id="titulo-fiesta" class="fiesta__titulo">La fiesta</h2>
-          <div class="fiesta__fecha"><span class="fiesta__dia">Sábado</span><strong>28</strong><span class="fiesta__mes">Noviembre · 2026</span></div>
+          <div class="fiesta__fecha">
+            <span class="fiesta__dia">Sábado</span><strong>28</strong
+            ><span class="fiesta__mes">Noviembre · 2026</span>
+          </div>
           <p class="fiesta__hora">21:00 hs</p>
           <div class="linea-ornamental" aria-hidden="true"><span>✦</span></div>
           <h3 class="fiesta__lugar">Sociedad Italiana de Vila</h3>
           <p class="fiesta__localidad">Vila, Santa Fe</p>
-          <a class="boton boton--contorno" href="https://www.google.com/maps/search/?api=1&amp;query=Sociedad+Italiana+de+Vila+Santa+Fe" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a>
+          <a
+            class="boton boton--contorno"
+            href="https://www.google.com/maps/search/?api=1&amp;query=Sociedad+Italiana+de+Vila+Santa+Fe"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cómo llegar <span aria-hidden="true">↗</span></a
+          >
         </div>
       </section>
 
       <!-- Collage 02: EMILIA4 y 5 apiladas; EMILIA6 ocupa el alto de las dos. -->
-      <section class="fotografias fotografias--dos" aria-label="Fotos de Emilia, segunda parte">
-        <figure class="foto foto--4"><img src="img/EMILIA4.jpeg" alt="Emilia sentada en una cerca al atardecer" loading="lazy" /></figure>
-        <figure class="foto foto--5"><img src="img/EMILIA5.jpeg" alt="Emilia junto a una construcción antigua" loading="lazy" /></figure>
-        <figure class="foto foto--6"><img src="img/EMILIA6.jpeg" alt="Emilia con sombrero en el bosque" loading="lazy" /></figure>
+      <section
+        class="fotografias fotografias--dos"
+        aria-label="Fotos de Emilia, segunda parte"
+      >
+        <figure class="foto foto--4">
+          <img
+            src="img/EMILIA4.jpeg"
+            alt="Emilia sentada en una cerca al atardecer"
+            loading="lazy"
+          />
+        </figure>
+        <figure class="foto foto--5">
+          <img
+            src="img/EMILIA5.jpeg"
+            alt="Emilia junto a una construcción antigua"
+            loading="lazy"
+          />
+        </figure>
+        <figure class="foto foto--6">
+          <img
+            src="img/EMILIA6.jpeg"
+            alt="Emilia con sombrero en el bosque"
+            loading="lazy"
+          />
+        </figure>
       </section>
 
       <section class="confirmacion" aria-labelledby="titulo-confirmacion">
         <span class="detalle-decorativo" aria-hidden="true">✦</span>
         <p class="seccion__pre">Me haría muy feliz verte ahí</p>
-        <h2 id="titulo-confirmacion" class="confirmacion__titulo">Confirmá tu asistencia</h2>
-        <p class="confirmacion__plazo">Tenés tiempo hasta el <strong>18 de noviembre</strong></p>
+        <h2 id="titulo-confirmacion" class="confirmacion__titulo">
+          Confirmá tu asistencia
+        </h2>
+        <p class="confirmacion__plazo">
+          Tenés tiempo hasta el <strong>18 de noviembre</strong>
+        </p>
         <p class="confirmacion__ayuda">Elegí con quién querés confirmar:</p>
         <div class="confirmacion__acciones">
-          <a class="contacto" href="https://wa.me/5493492664153?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Emilia.%20Mi%20nombre%20es%3A%20" target="_blank" rel="noopener noreferrer" aria-label="Confirmar asistencia con papá por WhatsApp">
-            <span class="contacto__icono" aria-hidden="true">✉</span><span class="contacto__texto"><strong>Confirmar con Papá</strong><small>+54 3492 664153</small></span><span aria-hidden="true">↗</span>
+          <a
+            class="contacto"
+            href="https://wa.me/5493492664153?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Emilia.%20Mi%20nombre%20es%3A%20"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Confirmar asistencia con papá por WhatsApp"
+          >
+            <span class="contacto__icono" aria-hidden="true">✉</span
+            ><span class="contacto__texto"
+              ><strong>Confirmar con Papá</strong
+              ><small>+54 3492 664153</small></span
+            ><span aria-hidden="true">↗</span>
           </a>
-          <a class="contacto" href="https://wa.me/5493492313815?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Emilia.%20Mi%20nombre%20es%3A%20" target="_blank" rel="noopener noreferrer" aria-label="Confirmar asistencia con mamá por WhatsApp">
-            <span class="contacto__icono" aria-hidden="true">✉</span><span class="contacto__texto"><strong>Confirmar con Mamá</strong><small>+54 3492 313815</small></span><span aria-hidden="true">↗</span>
+          <a
+            class="contacto"
+            href="https://wa.me/5493492313813?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Emilia.%20Mi%20nombre%20es%3A%20"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Confirmar asistencia con mamá por WhatsApp"
+          >
+            <span class="contacto__icono" aria-hidden="true">✉</span
+            ><span class="contacto__texto"
+              ><strong>Confirmar con Mamá</strong
+              ><small>+54 3492 313813</small></span
+            ><span aria-hidden="true">↗</span>
           </a>
         </div>
       </section>
 
       <!-- Collage 03: EMILIA7 grande, EMILIA8 y 9 a su lado. -->
-      <section class="fotografias fotografias--tres" aria-label="Fotos de Emilia, tercera parte">
-        <figure class="foto foto--7"><img src="img/EMILIA7.jpeg" alt="Emilia en el jardín de una construcción antigua" loading="lazy" /></figure>
-        <figure class="foto foto--8"><img src="img/EMILIA8.jpeg" alt="Emilia apoyada en una cerca de madera" loading="lazy" /></figure>
-        <figure class="foto foto--9"><img src="img/EMILIA9.jpeg" alt="Retrato de Emilia en un jardín verde" loading="lazy" /></figure>
+      <section
+        class="fotografias fotografias--tres"
+        aria-label="Fotos de Emilia, tercera parte"
+      >
+        <figure class="foto foto--7">
+          <img
+            src="img/EMILIA7.jpeg"
+            alt="Emilia en el jardín de una construcción antigua"
+            loading="lazy"
+          />
+        </figure>
+        <figure class="foto foto--8">
+          <img
+            src="img/EMILIA8.jpeg"
+            alt="Emilia apoyada en una cerca de madera"
+            loading="lazy"
+          />
+        </figure>
+        <figure class="foto foto--9">
+          <img
+            src="img/EMILIA9.jpeg"
+            alt="Retrato de Emilia en un jardín verde"
+            loading="lazy"
+          />
+        </figure>
       </section>
 
       <footer class="cierre">
