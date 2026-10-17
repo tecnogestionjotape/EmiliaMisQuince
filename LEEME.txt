@@ -1,32 +1,13 @@
-EMILIA · MIS QUINCE · BOCETO 01 (SIN PRECIOS)
+EMILIA · MIS QUINCE · PROYECTO VIGENTE
 
-Este ZIP es un prototipo independiente para revisar el diseño.
-No modifica el proyecto original ni su historial Git/GitHub.
+Contiene cuatro invitaciones y recursos compartidos.
+- / -> invitación sin precios.
+- /invitacion-01/ -> cena $ 80.000.
+- /invitacion-02/ -> brindis $ 20.000.
+- /invitacion-03/ -> cena + brindis.
 
-CONTENIDO
-- index.html
-- css/estilos.css
-- js/script.js
-- img/EMILIA1.jpeg hasta img/EMILIA9.jpeg
-- audio/musica.mp3 (conservado del proyecto original)
+Fiesta: 28 de noviembre de 2026 a las 21:00 hs.
+Confirmar hasta: 18 de noviembre.
 
-PARA PROBAR EN VS CODE
-1. Descomprimir este ZIP en una carpeta nueva (no encima del original).
-2. Abrir esa carpeta en Visual Studio Code.
-3. Usar Live Server -> Open with Live Server en index.html,
-   o abrir index.html con el navegador.
-4. Presionar «Abrir invitación» para ver la página y activar la música.
-
-EL BOCETO YA INCLUYE
-- 9 fotos en orden estricto, organizadas en tres collages.
-- Contador de 28/11/2026, 21:00 (hora Argentina).
-- Datos del evento y enlace a la ubicación.
-- Botones de confirmación por WhatsApp antes del 12/11.
-- Animaciones discretas y música original.
-
-NÚMEROS PARA WHATSAPP
-Se interpretó que los teléfonos móviles argentinos comunicados
-utilizan el prefijo 549 para enlaces de WhatsApp. Confirmar que
-ambos números tienen WhatsApp antes de compartir la invitación.
-
-Esta primera versión NO incluye precios ni dress code.
+Para instrucciones de actualización y enlaces completos, leé:
+LEEME-ACTUALIZACION.txt

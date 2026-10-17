@@ -1,40 +1,52 @@
-EMILIA · MIS QUINCE · 4 INVITACIONES (2026)
+EMILIA · MIS QUINCE · 4 INVITACIONES (OCTUBRE 2026)
 
-Este paquete actualiza el diseño aprobado por Emilia y agrega tres
-versiones. No incluye la carpeta .git ni modifica tu historial.
+Esta versión se preparó a partir de tu último ZIP EmiliaMisQuince(1).zip,
+conservando TODOS los archivos del sitio y la corrección de teléfono que
+ya realizaste. Solo se renombraron las tres carpetas de invitaciones
+con precio. No se tocó el diseño, el HTML, el CSS, el JavaScript, las fotos
+ni la música.
 
-LAS 4 VERSIONES
-1) /                      -> Invitación especial, sin precios.
-2) /cena/                 -> Valor de la tarjeta: $ 80.000.
-3) /brindis/              -> Valor de la tarjeta: $ 20.000.
-4) /cena-brindis/         -> Cena $ 80.000 y brindis $ 20.000.
+4 ENLACES DESPUÉS DE PUBLICAR EN GITHUB PAGES
 
-EN TODAS:
-- Plazo de confirmación: «Tenés tiempo hasta el 18 de noviembre».
-- Fiesta: sábado 28/11/2026, 21:00 hs, Sociedad Italiana de Vila.
-- Música mp3 original, contador, fotos EMILIA1 a EMILIA9 y WhatsApp.
-- No se incluye dress code.
+1) Especial (sin precios)
+   https://tecnogestionjotape.github.io/EmiliaMisQuince/
 
-ACTUALIZAR TU REPOSITORIO EXISTENTE DESDE VS CODE
-1. Hacé una copia de seguridad o asegurate de tener un commit del
-   estado actual (el que ya aprobó Emilia).
-2. Descomprimí este ZIP.
-3. Abrí la carpeta EmiliaMisQuince que está DENTRO del ZIP.
-4. Copiá SU CONTENIDO dentro de la carpeta raíz de tu proyecto Git:
-   index.html, css/, js/, img/, audio/ y las tres carpetas nuevas.
-   Fusioná/reemplazá los archivos correspondientes, pero NO elimines
-   la carpeta oculta .git de tu repositorio original.
-5. Probá los cuatro index.html desde Live Server o el navegador.
-6. Si está correcto, realizá commit y push a tu repositorio habitual.
+2) Cena ($ 80.000)
+   https://tecnogestionjotape.github.io/EmiliaMisQuince/invitacion-01/
 
-ENLACES UNA VEZ PUBLICADO EN GITHUB PAGES
-https://tecnogestionjotape.github.io/EmiliaMisQuince/
-https://tecnogestionjotape.github.io/EmiliaMisQuince/cena/
-https://tecnogestionjotape.github.io/EmiliaMisQuince/brindis/
-https://tecnogestionjotape.github.io/EmiliaMisQuince/cena-brindis/
+3) Brindis ($ 20.000)
+   https://tecnogestionjotape.github.io/EmiliaMisQuince/invitacion-02/
 
-IMPORTANTE:
-- Los 4 enlaces son públicos: el enlace no protege el precio.
-- Los recursos pesados se comparten, no se duplican entre versiones.
-- Por seguridad, NO se incluye ni modifica el historial Git.
-- Los enlaces a WhatsApp usan prefijo argentino 549.
+4) Cena y brindis (ambos precios)
+   https://tecnogestionjotape.github.io/EmiliaMisQuince/invitacion-03/
+
+CONFIRMADOS EN LOS CUATRO SITIOS
+- Confirmación: Tenés tiempo hasta el 18 de noviembre.
+- Fecha de la fiesta: sábado 28/11/2026, 21:00 hs (Argentina).
+- Sociedad Italiana de Vila, Santa Fe.
+- Música y contador originales, 9 fotos, ubicación y WhatsApp.
+- Se mantiene el teléfono corregido de tu último ZIP.
+
+ACTUALIZACIÓN SEGURA DEL REPOSITORIO QUE YA TENÉS EN VS CODE
+
+1. Asegurate de haber hecho commit y push del estado actual.
+2. En la carpeta ACTUAL de tu proyecto, renombrá estas 3 carpetas:
+      cena          --> invitacion-01
+      brindis       --> invitacion-02
+      cena-brindis  --> invitacion-03
+   Es importante RENOMBRARLAS, no simplemente agregar otras tres,
+   para que las direcciones viejas desaparezcan del nuevo sitio.
+3. Descomprimí este ZIP, abrí la carpeta EmiliaMisQuince del paquete
+   y copiá su CONTENIDO a la raíz de tu proyecto de VS Code,
+   reemplazando cuando corresponda.
+4. Conservá SIEMPRE la carpeta oculta .git de tu proyecto original.
+   Por seguridad, el ZIP nuevo NO contiene .git y no altera tu historial.
+5. Comprobá los cuatro index.html (raíz e invitacion-01/02/03/).
+6. Hacé commit y push. Los nuevos links funcionarán después de que
+   GitHub Pages publique la actualización.
+
+IMPORTANTE: Los enlaces son públicos. Cambiar el nombre de las carpetas
+hace que los tipos de invitación no se identifiquen a simple vista,
+pero NO protege ni restringe el acceso a las versiones con precios.
+Si ya compartiste los enlaces viejos /cena/, /brindis/ o
+/cena-brindis/, dejarán de abrir la invitación después de publicar.
