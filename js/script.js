@@ -1,169 +1,110 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. Splash, Audio y Animación de Frase
-  const splash = document.getElementById("splash");
-  const btnIngresar = document.getElementById("btn-ingresar");
-  const audio = document.getElementById("musica");
-  const btnMusica = document.getElementById("btn-musica");
-  const fraseBienvenida = document.getElementById("frase-bienvenida");
+document.addEventListener('DOMContentLoaded', () => {
+  const splash = document.getElementById('splash');
+  const btnIngresar = document.getElementById('btn-ingresar');
+  const audio = document.getElementById('musica');
+  const btnMusica = document.getElementById('btn-musica');
+  const estadoMusica = document.getElementById('estado-musica');
+  const frase = document.getElementById('frase-bienvenida');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  btnIngresar.addEventListener("click", () => {
-    audio.play().catch((err) => console.warn("Autoplay bloqueado:", err));
-    splash.classList.add("oculto");
+  function actualizarEstadoMusica() {
+    const sonando = !audio.paused;
+    btnMusica.setAttribute('aria-pressed', String(sonando));
+    btnMusica.setAttribute('aria-label', sonando ? 'Pausar música' : 'Reproducir música');
+    estadoMusica.textContent = sonando ? 'Música sonando' : 'Música pausada';
+  }
+  audio.addEventListener('play', actualizarEstadoMusica);
+  audio.addEventListener('pause', actualizarEstadoMusica);
+  audio.addEventListener('ended', actualizarEstadoMusica);
 
-    setTimeout(() => {
-      fraseBienvenida.classList.add("visible");
-    }, 400);
-
-    lanzarFuegosIniciales();
+  btnIngresar.addEventListener('click', () => {
+    splash.classList.add('oculto');
+    splash.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('inicio-bloqueado');
+    btnIngresar.blur();
+    btnMusica.focus({ preventScroll: true });
+    audio.play().catch(() => actualizarEstadoMusica());
+    window.setTimeout(() => frase.classList.add('visible'), 250);
+    if (!reduceMotion) lanzarDestellosIniciales();
   });
 
-  btnMusica.addEventListener("click", () => {
+  btnMusica.addEventListener('click', () => {
     if (audio.paused) {
-      audio.play();
-      btnMusica.style.opacity = "1";
+      audio.play().catch(() => actualizarEstadoMusica());
     } else {
       audio.pause();
-      btnMusica.style.opacity = "0.5";
     }
   });
+  actualizarEstadoMusica();
 
-  // 2. Temporizador (28 de Noviembre de 2026, 21:30 hs)
-  const fechaFiesta = new Date("2026-11-28T21:30:00").getTime();
-
+  // Hora oficial Argentina (UTC-03:00), 28/11/2026 a las 21:00.
+  const fechaFiesta = new Date('2026-11-28T21:00:00-03:00').getTime();
+  const elementos = {
+    dias: document.getElementById('dias'),
+    horas: document.getElementById('horas'),
+    minutos: document.getElementById('minutos'),
+    segundos: document.getElementById('segundos')
+  };
   function actualizarContador() {
-    const ahora = new Date().getTime();
-    const diferencia = fechaFiesta - ahora;
-
-    if (diferencia <= 0) {
-      document.getElementById("dias").innerText = "00";
-      document.getElementById("horas").innerText = "00";
-      document.getElementById("minutos").innerText = "00";
-      document.getElementById("segundos").innerText = "00";
-      return;
+    let restante = Math.max(0, fechaFiesta - Date.now());
+    const dias = Math.floor(restante / 86400000);
+    restante %= 86400000;
+    const horas = Math.floor(restante / 3600000);
+    restante %= 3600000;
+    const minutos = Math.floor(restante / 60000);
+    restante %= 60000;
+    const segundos = Math.floor(restante / 1000);
+    for (const [clave, valor] of Object.entries({ dias, horas, minutos, segundos })) {
+      elementos[clave].textContent = String(valor).padStart(2, '0');
     }
-
-    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor(
-      (diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-    );
-    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-    document.getElementById("dias").innerText = String(dias).padStart(2, "0");
-    document.getElementById("horas").innerText = String(horas).padStart(2, "0");
-    document.getElementById("minutos").innerText = String(minutos).padStart(
-      2,
-      "0",
-    );
-    document.getElementById("segundos").innerText = String(segundos).padStart(
-      2,
-      "0",
-    );
   }
-
   actualizarContador();
-  setInterval(actualizarContador, 1000);
+  window.setInterval(actualizarContador, 1000);
 
-  // 3. Sistema de Destellos y Fuegos Artificiales
-  const canvas = document.getElementById("canvas-fuegos");
-  const ctx = canvas.getContext("2d");
-
+  // Destellos elegantes en tonos verde, champagne y marfil.
+  const canvas = document.getElementById('canvas-fuegos');
+  const ctx = canvas.getContext('2d');
+  if (!ctx || reduceMotion) return;
+  const colores = ['#e8d4a4', '#c4a779', '#f8f3e7', '#8cae92'];
+  let particulas = [];
   function redimensionarCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(window.innerWidth * dpr);
+    canvas.height = Math.round(window.innerHeight * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   redimensionarCanvas();
-  window.addEventListener("resize", redimensionarCanvas);
-
-  let particulas = [];
-  const paletaColores = [
-    "#2ecc71", // Verde esmeralda
-    "#27ae60", // Verde botánico
-    "#f1c40f", // Dorado
-    "#e67e22", // Oro viejo
-    "#e91e63", // Rosa
-    "#9b59b6", // Violeta
-    "#00cec9", // Turquesa
-    "#ffffff", // Blanco destello
-  ];
-
-  class Particula {
-    constructor(x, y, color) {
-      this.x = x;
-      this.y = y;
-      this.color = color;
-      const angulo = Math.random() * Math.PI * 2;
-      const velocidad = Math.random() * 4.5 + 1.5;
-      this.vx = Math.cos(angulo) * velocidad;
-      this.vy = Math.sin(angulo) * velocidad;
-      this.alfa = 1;
-      this.friccion = 0.96;
-      this.gravedad = 0.05;
-      this.radio = Math.random() * 2.2 + 1.2;
-      this.desvanecimiento = Math.random() * 0.015 + 0.008;
-    }
-
-    actualizar() {
-      this.vx *= this.friccion;
-      this.vy *= this.friccion;
-      this.vy += this.gravedad;
-      this.x += this.vx;
-      this.y += this.vy;
-      this.alfa -= this.desvanecimiento;
-    }
-
-    dibujar() {
-      ctx.save();
-      ctx.globalAlpha = Math.max(this.alfa, 0);
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2);
-      ctx.fillStyle = this.color;
-      ctx.shadowBlur = 6;
-      ctx.shadowColor = this.color;
-      ctx.fill();
-      ctx.restore();
-    }
-  }
-
-  function crearExplosion(x, y, cantidad = 36) {
+  window.addEventListener('resize', redimensionarCanvas, { passive: true });
+  function explosion(x, y, cantidad = 20) {
     for (let i = 0; i < cantidad; i++) {
-      const color =
-        paletaColores[Math.floor(Math.random() * paletaColores.length)];
-      particulas.push(new Particula(x, y, color));
+      const angulo = Math.random() * Math.PI * 2;
+      const velocidad = 1 + Math.random() * 2.5;
+      particulas.push({ x, y, vx: Math.cos(angulo) * velocidad, vy: Math.sin(angulo) * velocidad,
+        alfa: 1, radio: 1 + Math.random() * 1.6, color: colores[Math.floor(Math.random() * colores.length)] });
     }
   }
-
-  function animarCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function animar() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     for (let i = particulas.length - 1; i >= 0; i--) {
-      particulas[i].actualizar();
-      particulas[i].dibujar();
-      if (particulas[i].alfa <= 0) {
-        particulas.splice(i, 1);
-      }
+      const p = particulas[i];
+      p.x += p.vx; p.y += p.vy; p.vx *= .986; p.vy = p.vy * .986 + .018; p.alfa -= .012;
+      if (p.alfa <= 0) { particulas.splice(i, 1); continue; }
+      ctx.globalAlpha = Math.max(0, p.alfa);
+      ctx.fillStyle = p.color;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.radio, 0, 2 * Math.PI); ctx.fill();
     }
-    requestAnimationFrame(animarCanvas);
+    ctx.globalAlpha = 1;
+    window.requestAnimationFrame(animar);
   }
-  animarCanvas();
-
-  function lanzarFuegosIniciales() {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    crearExplosion(w * 0.25, h * 0.3, 40);
-    setTimeout(() => crearExplosion(w * 0.75, h * 0.25, 40), 300);
-    setTimeout(() => crearExplosion(w * 0.5, h * 0.45, 45), 600);
-    setTimeout(() => crearExplosion(w * 0.3, h * 0.6, 35), 900);
+  animar();
+  function lanzarDestellosIniciales() {
+    explosion(window.innerWidth * .22, window.innerHeight * .33, 30);
+    setTimeout(() => explosion(window.innerWidth * .75, window.innerHeight * .27, 30), 370);
+    setTimeout(() => explosion(window.innerWidth * .42, window.innerHeight * .55, 24), 720);
   }
-
-  setInterval(() => {
-    if (!splash.classList.contains("oculto")) return;
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    const x =
-      Math.random() > 0.5
-        ? w * (Math.random() * 0.2 + 0.05)
-        : w * (Math.random() * 0.2 + 0.75);
-    const y = h * (Math.random() * 0.6 + 0.15);
-    crearExplosion(x, y, 20);
-  }, 2600);
+  window.setInterval(() => {
+    if (splash.classList.contains('oculto') && !document.hidden) {
+      explosion(window.innerWidth * (Math.random() < .5 ? .12 : .88), window.innerHeight * (.2 + .6 * Math.random()), 9);
+    }
+  }, 4200);
 });
