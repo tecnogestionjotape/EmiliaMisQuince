@@ -1,10 +1,15 @@
 EMILIA · MIS QUINCE · 4 INVITACIONES (OCTUBRE 2026)
 
-Esta versión se preparó a partir de tu último ZIP EmiliaMisQuince(1).zip,
-conservando TODOS los archivos del sitio y la corrección de teléfono que
-ya realizaste. Solo se renombraron las tres carpetas de invitaciones
-con precio. No se tocó el diseño, el HTML, el CSS, el JavaScript, las fotos
-ni la música.
+Esta actualización toma como base las cuatro invitaciones con enlaces
+numéricos, preservando íntegros los números de teléfono corregidos,
+el diseño aprobado, las fotografías y la música.
+
+ÚNICO AJUSTE VISUAL:
+- Se cambió el sobre por el ícono de WhatsApp en los botones de
+  confirmación de Papá y Mamá en las cuatro invitaciones.
+- El nuevo dibujo es un solo archivo compartido: img/whatsapp.svg.
+- No se modificaron los números, destinos wa.me, frases, fechas,
+  precios, fotografías, colores ni funcionalidades.
 
 4 ENLACES DESPUÉS DE PUBLICAR EN GITHUB PAGES
 
@@ -27,23 +32,20 @@ CONFIRMADOS EN LOS CUATRO SITIOS
 - Música y contador originales, 9 fotos, ubicación y WhatsApp.
 - Se mantiene el teléfono corregido de tu último ZIP.
 
-ACTUALIZACIÓN SEGURA DEL REPOSITORIO QUE YA TENÉS EN VS CODE
+ACTUALIZACIÓN SEGURA EN VS CODE
 
-1. Asegurate de haber hecho commit y push del estado actual.
-2. En la carpeta ACTUAL de tu proyecto, renombrá estas 3 carpetas:
-      cena          --> invitacion-01
-      brindis       --> invitacion-02
-      cena-brindis  --> invitacion-03
-   Es importante RENOMBRARLAS, no simplemente agregar otras tres,
-   para que las direcciones viejas desaparezcan del nuevo sitio.
-3. Descomprimí este ZIP, abrí la carpeta EmiliaMisQuince del paquete
-   y copiá su CONTENIDO a la raíz de tu proyecto de VS Code,
-   reemplazando cuando corresponda.
-4. Conservá SIEMPRE la carpeta oculta .git de tu proyecto original.
-   Por seguridad, el ZIP nuevo NO contiene .git y no altera tu historial.
-5. Comprobá los cuatro index.html (raíz e invitacion-01/02/03/).
-6. Hacé commit y push. Los nuevos links funcionarán después de que
-   GitHub Pages publique la actualización.
+1. Antes de actualizar, guardá (commit/push) tu estado actual.
+2. Descomprimí este ZIP y copiá el CONTENIDO de la carpeta
+   EmiliaMisQuince dentro de tu proyecto, fusionando carpetas y
+   reemplazando los archivos coincidentes.
+3. Conservá siempre la carpeta oculta .git de tu repositorio.
+   Este ZIP no contiene .git.
+4. Verificá los botones WhatsApp de Papá y Mamá en las cuatro rutas.
+5. Hacé commit/push y esperá la publicación de GitHub Pages.
+
+Si todavía existen en tu repositorio las carpetas antiguas
+cena, brindis y cena-brindis, retiralas después de comprobar que
+las nuevas carpetas invitacion-01/02/03 están presentes.
 
 IMPORTANTE: Los enlaces son públicos. Cambiar el nombre de las carpetas
 hace que los tipos de invitación no se identifiquen a simple vista,
