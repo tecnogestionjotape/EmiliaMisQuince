@@ -1,0 +1,40 @@
+EMILIA · MIS QUINCE · 4 INVITACIONES (2026)
+
+Este paquete actualiza el diseño aprobado por Emilia y agrega tres
+versiones. No incluye la carpeta .git ni modifica tu historial.
+
+LAS 4 VERSIONES
+1) /                      -> Invitación especial, sin precios.
+2) /cena/                 -> Valor de la tarjeta: $ 80.000.
+3) /brindis/              -> Valor de la tarjeta: $ 20.000.
+4) /cena-brindis/         -> Cena $ 80.000 y brindis $ 20.000.
+
+EN TODAS:
+- Plazo de confirmación: «Tenés tiempo hasta el 18 de noviembre».
+- Fiesta: sábado 28/11/2026, 21:00 hs, Sociedad Italiana de Vila.
+- Música mp3 original, contador, fotos EMILIA1 a EMILIA9 y WhatsApp.
+- No se incluye dress code.
+
+ACTUALIZAR TU REPOSITORIO EXISTENTE DESDE VS CODE
+1. Hacé una copia de seguridad o asegurate de tener un commit del
+   estado actual (el que ya aprobó Emilia).
+2. Descomprimí este ZIP.
+3. Abrí la carpeta EmiliaMisQuince que está DENTRO del ZIP.
+4. Copiá SU CONTENIDO dentro de la carpeta raíz de tu proyecto Git:
+   index.html, css/, js/, img/, audio/ y las tres carpetas nuevas.
+   Fusioná/reemplazá los archivos correspondientes, pero NO elimines
+   la carpeta oculta .git de tu repositorio original.
+5. Probá los cuatro index.html desde Live Server o el navegador.
+6. Si está correcto, realizá commit y push a tu repositorio habitual.
+
+ENLACES UNA VEZ PUBLICADO EN GITHUB PAGES
+https://tecnogestionjotape.github.io/EmiliaMisQuince/
+https://tecnogestionjotape.github.io/EmiliaMisQuince/cena/
+https://tecnogestionjotape.github.io/EmiliaMisQuince/brindis/
+https://tecnogestionjotape.github.io/EmiliaMisQuince/cena-brindis/
+
+IMPORTANTE:
+- Los 4 enlaces son públicos: el enlace no protege el precio.
+- Los recursos pesados se comparten, no se duplican entre versiones.
+- Por seguridad, NO se incluye ni modifica el historial Git.
+- Los enlaces a WhatsApp usan prefijo argentino 549.

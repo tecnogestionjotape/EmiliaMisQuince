@@ -169,3 +169,25 @@ button:focus-visible, a:focus-visible { outline: 3px solid #c4a779; outline-offs
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* Valores de las tarjetas: visibles solo en las versiones cena y brindis. */
+.fiesta__valores {
+  width: min(100%, 440px);
+  margin: -6px auto 27px;
+  padding: 17px 12px;
+  border: 1px solid rgba(228, 215, 187, .48);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .055);
+}
+.fiesta__valor {
+  margin: 0;
+  color: #fdf9ef;
+  font: 400 clamp(17px, 4.6vw, 21px)/1.4 var(--serif);
+}
+.fiesta__valor strong { color: #f4dfac; font-weight: 600; white-space: nowrap; }
+.fiesta__valores--doble { padding-block: 15px; }
+.fiesta__valores--doble .fiesta__valor + .fiesta__valor {
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(228, 215, 187, .25);
+}
