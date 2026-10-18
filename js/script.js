@@ -1,4 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // En celulares mantenemos wa.me (abre la aplicación).
+  // En computadoras abrimos el chat directamente en WhatsApp Web,
+  // sin depender de que WhatsApp Escritorio esté instalado.
+  const agente = navigator.userAgent || "";
+  const esIpad = /Macintosh/i.test(agente) && navigator.maxTouchPoints > 1;
+  const esMovil =
+    /Android|iPhone|iPad|iPod|Mobile/i.test(agente) ||
+    navigator.userAgentData?.mobile === true ||
+    esIpad;
+
+  if (!esMovil) {
+    document.querySelectorAll('a.contacto[href^="https://wa.me/"]').forEach((enlace) => {
+      const origen = new URL(enlace.href);
+      const numero = origen.pathname.replace(/^\/+|\/+$/g, "");
+      if (!/^\d{10,15}$/.test(numero)) return;
+
+      const destino = new URL("https://web.whatsapp.com/send");
+      destino.searchParams.set("phone", numero);
+      const mensaje = origen.searchParams.get("text");
+      if (mensaje !== null) destino.searchParams.set("text", mensaje);
+      enlace.href = destino.toString();
+    });
+  }
   const splash = document.getElementById("splash");
   const btnIngresar = document.getElementById("btn-ingresar");
   const audio = document.getElementById("musica");
