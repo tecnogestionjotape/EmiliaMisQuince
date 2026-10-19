@@ -762,12 +762,14 @@ a:focus-visible {
 .fiesta__valor {
   margin: 0;
   color: #fdf9ef;
-  font: 400 clamp(17px, 4.6vw, 21px)/1.4 var(--serif);
+  font: 400 clamp(19px, 5vw, 24px)/1.4 var(--serif);
+  text-align: center;
 }
 .fiesta__valor strong {
   color: #f4dfac;
   font-weight: 600;
   white-space: nowrap;
+  font-size: 24px;
 }
 .fiesta__valores--doble {
   padding-block: 15px;
