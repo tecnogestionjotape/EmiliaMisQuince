@@ -763,7 +763,7 @@ a:focus-visible {
   margin: 0;
   color: #fdf9ef;
   font: 400 clamp(17px, 5vw, 18px)/1.4 var(--serif);
-  text-align: center;
+  text-align: left;
 }
 .fiesta__valor strong {
   color: #f4dfac;
